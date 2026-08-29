@@ -2,7 +2,9 @@
 
 Upper-body hardware for the OpenAMRobot mobile manipulator: mechanics and electrical design for the lift and arm mounts on the mobile base.
 
-**Status:** planned. Populated next cycle, after simulation validates the geometry.
+> **Status:** Planned, no code yet
+
+Populated next cycle, after simulation validates the geometry. This repository currently holds only this README.
 
 ## What will live here
 - **Lift module:** rails, actuator, carriage, mechanical drawings.
