@@ -5,16 +5,18 @@ Upper-body hardware for OpenAMRobot 2.0: the custom fixed mast, arm mounts, equi
 > **Status:** Design and integration scope. This repository does not yet provide a released mast design or fabrication/commissioning evidence.
 
 ## Current deliverables
-- **Custom fixed mast:** COTS aluminium profiles, laser-cut or bent aluminium sheet and ready-made brackets. No welding or machining at the build site. The OpenArm 2.0 supplier body is not used.
+- **Custom fixed mast:** one COTS aluminium profile (MISUMI HFS6-60120) on a laser-cut base plate with ready-made brackets. No welding or machining at the build site. The OpenArm 2.0 supplier body is not used.
 - **Chassis interface:** base plate bolted into the chassis structural frame, with documented load path, fasteners and tightening torques.
-- **Arm mounting:** shoulder bracket preserving the official OpenArm arm-mount frames, with 50 mm indexed adjustment and an index table.
+- **Arm mounting:** the OpenArm 2.0 J1_A plates bolt to the side T-slots of the mast profile, preserving the official arm-mount frames; four indexed positions with an index table.
 - **Equipment mounting:** head camera, chest E-stop and operator equipment brackets, service access and cable strain relief.
 - **Cable routing:** separated power/signal routes, service loops and labelled keyed deck disconnects.
 - **Release package:** CAD, drawings, BOM, assembly instructions, mass/CoG, stiffness and stability evidence, assembled-height and sensor-clearance checks.
 - **Lift module:** separate OpenAMRobot 3.0 scope.
 
 ## Mast and equipment allocation
-The preliminary shoulder-axis height is **1400 mm above the floor** (`mast_1400`). **Maximum assembled height is 1700 mm**, including the head camera and all mounted equipment. Final shoulder position and permissible index positions require A4 and F2S evidence.
+The fixed-mast architecture, mast mounting and upper-body hardware integration are current OpenAMRobot 2.0 scope. The lift module, lift controller and lift requirements are deferred to OpenAMRobot 3.0.
+
+The mast is one MISUMI HFS6-60120 aluminium profile with its top **1500 mm above the floor**, carrying four indexed shoulder-axis positions, 1300, 1350, 1400 and 1450 mm. The release configuration is `mast_1350`, a **1350 mm shoulder-axis height**. **1700 mm is the assembled robot-height envelope**, including the head camera and all mounted equipment, not the shoulder-axis height. The other three positions are mechanical provision and engineering-analysis options, not release configurations. Decision of record: P-03 Decision Addendum revision 18.2, 28 September 2026.
 
 Central electronics, controllers, hubs and converters stay inside the mobile platform. The mast carries the arms, head camera, chest E-stop, operator equipment and cable routing; electronics integral to those devices remain part of the devices. No separate mast electronics/junction plate is part of this baseline.
 
