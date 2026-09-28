@@ -1,24 +1,30 @@
 # openamr-upperbody-hw
 
-Upper-body hardware for the OpenAMRobot mobile manipulator: mechanics and electrical design for the 2.0 fixed mast and arm mounts on the mobile base.
+Upper-body hardware for OpenAMRobot 2.0: the custom fixed mast, arm mounts, equipment brackets and cable routing on the mobile platform. An actuated lift is deferred to OpenAMRobot 3.0.
 
-> **Status:** Planned, no code yet
+> **Status:** Design and integration scope. This repository does not yet provide a released mast design or fabrication/commissioning evidence.
 
-Populated next cycle, after simulation validates the geometry. This repository currently holds only this README.
+## Current deliverables
+- **Custom fixed mast:** COTS aluminium profiles, laser-cut or bent aluminium sheet and ready-made brackets. No welding or machining at the build site. The OpenArm 2.0 supplier body is not used.
+- **Chassis interface:** base plate bolted into the chassis structural frame, with documented load path, fasteners and tightening torques.
+- **Arm mounting:** shoulder bracket preserving the official OpenArm arm-mount frames, with 50 mm indexed adjustment and an index table.
+- **Equipment mounting:** head camera, chest E-stop and operator equipment brackets, service access and cable strain relief.
+- **Cable routing:** separated power/signal routes, service loops and labelled keyed deck disconnects.
+- **Release package:** CAD, drawings, BOM, assembly instructions, mass/CoG, stiffness and stability evidence, assembled-height and sensor-clearance checks.
+- **Lift module:** separate OpenAMRobot 3.0 scope.
 
-## What will live here
-- **Lift module (3.0):** rails, actuator, carriage, mechanical drawings.
-- **Mounting:** the arm mounting-plate interface, per-arm adapter plates, and the mount surface on the base.
-- **End-effector mounts.**
-- **Upper-body wiring and power distribution.**
-- **Bill of materials and assembly documentation.**
+## Mast and equipment allocation
+The preliminary shoulder-axis height is **1400 mm above the floor** (`mast_1400`). **Maximum assembled height is 1700 mm**, including the head camera and all mounted equipment. Final shoulder position and permissible index positions require A4 and F2S evidence.
+
+Central electronics, controllers, hubs and converters stay inside the mobile platform. The mast carries the arms, head camera, chest E-stop, operator equipment and cable routing; electronics integral to those devices remain part of the devices. No separate mast electronics/junction plate is part of this baseline.
 
 ## Interfaces
-- Consumes a defined power and CAN or serial connector from `openamr-platform-hw`.
-- Provides the mounting-plate frame that `openamr-upperbody-sw` models in the combined URDF.
+- Chassis structure, protected power branches and deck connectors are coordinated with `openamr-platform-hw`.
+- Arm communication follows Jetson USB-CAN-FD adapters to the OpenArm kit. CAN 1 is reserved for STM32-to-drive communication; isolated CAN 2 serves STM32-to-BMS communication. Do not add upper-body devices to either base bus. No RS485.
+- Provide mounting transforms, geometry and mass properties to `openamr-upperbody-sw` for the combined model and configuration metadata.
 
 ## This cycle
-2.0 fixed-mast concept and mounting-plate interface, informed by simulation. Lift is 3.0. Physical build is next cycle.
+Custom fixed-mast design, mounting and physical integration are current OpenAMRobot 2.0 work. Fabrication and commissioning follow the approved work-package gates; their completion requires evidence and is not implied by this README. The lift remains deferred to OpenAMRobot 3.0.
 
 Part of the OpenAMRobot ecosystem: https://github.com/openAMRobot
 
