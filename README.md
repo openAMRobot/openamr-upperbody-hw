@@ -1,24 +1,32 @@
 # openamr-upperbody-hw
 
-Upper-body hardware for the OpenAMRobot mobile manipulator: mechanics and electrical design for the lift and arm mounts on the mobile base.
+Upper-body hardware for OpenAMRobot 2.0: the custom fixed mast, arm mounts, equipment brackets and cable routing on the mobile platform. An actuated lift is deferred to OpenAMRobot 3.0.
 
-> **Status:** Planned, no code yet
+> **Status:** Design and integration scope. This repository does not yet provide a released mast design or fabrication/commissioning evidence.
 
-Populated next cycle, after simulation validates the geometry. This repository currently holds only this README.
+## Current deliverables
+- **Custom fixed mast:** one COTS aluminium profile (MISUMI HFS6-60120) on a laser-cut base plate with ready-made brackets. No welding or machining at the build site. The OpenArm 2.0 supplier body is not used.
+- **Chassis interface:** base plate bolted into the chassis structural frame, with documented load path, fasteners and tightening torques.
+- **Arm mounting:** the OpenArm 2.0 J1_A plates bolt to the side T-slots of the mast profile, preserving the official arm-mount frames; four indexed positions with an index table.
+- **Equipment mounting:** head camera, chest E-stop and operator equipment brackets, service access and cable strain relief.
+- **Cable routing:** separated power/signal routes, service loops and labelled keyed deck disconnects.
+- **Release package:** CAD, drawings, BOM, assembly instructions, mass/CoG, stiffness and stability evidence, assembled-height and sensor-clearance checks.
+- **Lift module:** separate OpenAMRobot 3.0 scope.
 
-## What will live here
-- **Lift module:** rails, actuator, carriage, mechanical drawings.
-- **Mounting:** the arm mounting-plate interface, per-arm adapter plates, and the mount surface on the base.
-- **End-effector mounts.**
-- **Upper-body wiring and power distribution.**
-- **Bill of materials and assembly documentation.**
+## Mast and equipment allocation
+The fixed-mast architecture, mast mounting and upper-body hardware integration are current OpenAMRobot 2.0 scope. The lift module, lift controller and lift requirements are deferred to OpenAMRobot 3.0.
+
+The mast is one MISUMI HFS6-60120 aluminium profile with its top **1500 mm above the floor**, carrying four indexed shoulder-axis positions, 1300, 1350, 1400 and 1450 mm. The release configuration is `mast_1350`, a **1350 mm shoulder-axis height**. **1700 mm is the maximum complete assembled robot height**, including the head camera and all mounted equipment; the robot may be lower, never higher. It is not the shoulder-axis height. The other three positions are available for A4 reach tests and engineering analysis, not installed release configurations without a recorded decision. Decision of record: P-03 Decision Addendum revision 18.2, 28 September 2026.
+
+Central electronics, controllers, hubs and converters stay inside the mobile platform. The mast carries the arms, head camera, chest E-stop, operator equipment and cable routing; electronics integral to those devices remain part of the devices. No separate mast electronics/junction plate is part of this baseline.
 
 ## Interfaces
-- Consumes a defined power and CAN or serial connector from `openamr-platform-hw`.
-- Provides the mounting-plate frame that `openamr-upperbody-sw` models in the combined URDF.
+- Chassis structure, protected power branches and deck connectors are coordinated with `openamr-platform-hw`.
+- Arm communication follows Jetson USB-CAN-FD adapters to the OpenArm kit. CAN 1 is reserved for STM32-to-drive communication; isolated CAN 2 serves STM32-to-BMS communication. Do not add upper-body devices to either base bus. No RS485.
+- Provide mounting transforms, geometry and mass properties to `openamr-upperbody-sw` for the combined model and configuration metadata.
 
 ## This cycle
-Concept and make-or-buy analysis for the lift, plus the mounting-plate interface, informed by simulation. Physical build is next cycle.
+Custom fixed-mast design, mounting and physical integration are current OpenAMRobot 2.0 work. Fabrication and commissioning follow the approved work-package gates; their completion requires evidence and is not implied by this README. The lift remains deferred to OpenAMRobot 3.0.
 
 Part of the OpenAMRobot ecosystem: https://github.com/openAMRobot
 
