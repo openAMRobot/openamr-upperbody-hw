@@ -6,7 +6,7 @@ Upper-body hardware for OpenAMRobot 2.0: the lift column on a two-position base 
 
 ## Current deliverables
 - **Lift column:** DOLD Hexalift V4, 350 mm stroke (530 mm retracted, 880 mm extended), mounted with its 240 mm side fore-aft. The OpenArm 2.0 supplier body is not used.
-- **Base plate:** 10 mm aluminium on the 294 mm chassis deck (top face 304 mm), with two fore-aft column positions, `bp000` (centre) and `bp050` (+50 mm).
+- **Base plate:** 10 mm aluminium on the 294 mm chassis deck (top face 304 mm), with two fore-aft column positions, `bp000` (column axis 330 mm behind the chassis front edge, x +0.060) and `bp050` (+50 mm).
 - **Chassis interface:** base plate bolted to the chassis deck, with documented load path, fasteners and tightening torques.
 - **Arm mounting:** a MISUMI HFS6-60120 arm profile, 340 mm long, standing on a 10 mm adapter plate on the column top. The OpenArm 2.0 J1_A plates bolt to its side T-slots, preserving the official arm-mount frames; the arm mount point is 180 mm ahead of the column axis.
 - **Equipment mounting:** head camera (ZED Mini on the lift carriage), chest E-stop and operator equipment brackets, service access and cable strain relief.
@@ -14,7 +14,7 @@ Upper-body hardware for OpenAMRobot 2.0: the lift column on a two-position base 
 - **Release package:** CAD, drawings, BOM, assembly instructions, mass/CoG, stiffness and stability evidence, assembled-height and sensor-clearance checks.
 
 ## Upper-body layout
-The decided values, the height stack, the fastening and the head-camera bracket are recorded in [`docs/mechanical/upper_body_option_B.md`](docs/mechanical/upper_body_option_B.md). Decision of record: P-03 revision 18.9 item 18, 9 October 2026 (option B).
+The decided values, the height stack, the fastening and the head-camera bracket are recorded in [`docs/mechanical/upper_body_option_B.md`](docs/mechanical/upper_body_option_B.md). Decision of record: P-03 revision 19.0 items 16 to 19, 12 October 2026 (option B).
 
 Heights are from the floor (Z = 0). The shoulder, at the OpenArm arm mount point, is 304 + 530 + 166 = **1000 mm** with the lift retracted and 304 + 880 + 166 = **1350 mm** fully extended. The lift height is joint state; `L1000`, `L1175` and `L1350` are calibration stops. **1700 mm is the maximum complete assembled robot height** at full lift extension, including the head camera and all mounted equipment.
 
