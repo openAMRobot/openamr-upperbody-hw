@@ -14,7 +14,7 @@ All heights are measured from the floor, Z = 0. Axes follow REP 103: x forward, 
 | Column length | 530 mm retracted, 880 mm extended |
 | Column orientation | Mounted with its 240 mm side fore-aft |
 | Base plate | 10 mm aluminium on the 294 mm chassis deck; top face 304 mm |
-| Base-plate positions | Two fore-aft positions only: `bp000` (centre, the existing mast position) and `bp050` (+50 mm forward) |
+| Base-plate positions | Two fore-aft positions only: `bp000` (column axis 330 mm behind the chassis front edge, x +0.060 from `base_link`) and `bp050` (+50 mm forward, x +0.110) |
 | Arm profile | MISUMI HFS6-60120 (60 mm lateral, 120 mm fore-aft), 340 mm long |
 | Arm profile support | Stands on a 10 mm adapter plate on the column top, 120 mm ahead of the column front face |
 | Arm profile span | 844 to 1184 mm at the retracted lift |
@@ -56,12 +56,14 @@ Shoulder height = 304 + 530 + 166 = 1000 mm retracted, and 304 + 880 + 166 = 135
 
 ## Fore-aft layout
 
-| Item | x relative to the column axis |
+| Item | x |
 |---|---|
-| Column axis, `bp000` | 0 (the existing mast position) |
-| Column axis, `bp050` | +50 mm relative to `bp000` |
-| Arm mount point (J1_A, `openarm_{side}_base_link`) | +180 mm |
-| Head-camera lens | +202 mm (arm mount point + 22 mm) |
+| Column axis, `bp000` | x +0.060 from `base_link` (330 mm behind the 780 mm chassis front edge; 60 mm ahead of the drive axle) |
+| Column axis, `bp050` | x +0.110 from `base_link` |
+| Arm mount point (J1_A) | x +0.240 at `bp000`, +0.290 at `bp050` from `base_link`; 150 mm behind the chassis front edge at `bp000` |
+| Head-camera lens | x +0.262 at `bp000` from `base_link` |
+
+`base_link` is at the drive-axle midpoint, 98.0 mm above the floor (REP 105); front edge at x +0.390.
 
 With the column's 240 mm side fore-aft, the column front face lies 120 mm ahead of the column axis if the axis is at the column centre. That centring is an assumption pending the DOLD CAD.
 
