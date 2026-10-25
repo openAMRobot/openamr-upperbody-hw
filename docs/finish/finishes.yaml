@@ -1,0 +1,330 @@
+# SPDX-License-Identifier: CC-BY-4.0
+# OpenAMRobot 2.0 finish schedule, upper body. Machine-readable source for the robot model.
+# The companion file openAMRobot/openamr-platform-hw docs/finish/finishes.yaml uses the same
+# schema, palette and id rules; entry ids are unique across both files (prefix base. or upper.).
+# finish-schedule.md is generated from this file by tools/finish_tables.py; edit this file first.
+# Cosmetic only: nothing here changes a shape, dimension, position, function or material.
+
+schema: openamrobot-finishes/1
+scope: upper body
+repository: openAMRobot/openamr-upperbody-hw
+companion: openAMRobot/openamr-platform-hw docs/finish/finishes.yaml
+date: 2026-10-25
+
+model:
+  repository: openAMRobot/openamr-upperbody-sw
+  commit: f57e54cfc9e7f9536e94c52749502cc983fb908e
+  node_ids_from: none yet; the upper-body description has links but no GLB. node_id values below are reserved ids (node_id_status proposed); model_link names the existing URDF link
+  arm_model:
+    repository: enactic/openarm_description
+    commit: 81fe64755f78777c9d55d7e5cc5a238a143f7950
+    links_from: assets/robot/openarm_v2.0/urdf/example/v2.urdf
+
+# How a reader applies an entry:
+#   node_id         GLB node id (glTF node name and extras.id). null: no node is planned.
+#   node_id_status  existing (in the GLB today; the default when absent) or proposed (reserved id).
+#   model_link(s)   optional URDF link name(s) the entry colours when there is no GLB node.
+#   colour          palette key, or null for as_delivered parts that keep the model's own materials.
+#   srgb_hex        display value for the model; null means keep the node's existing materials.
+#   finish          one of finish_values. as_delivered: purchased part, no finishing operation.
+#   status          decided: material, colour and process are established by the cited sources.
+#                   verify: at least one input is open; the verify field names the check.
+finish_values: [matte, satin, gloss, anodised, printed, as_delivered]
+status_values: [decided, verify]
+
+# sRGB values are screen approximations of the RAL references. A physical RAL sample governs.
+palette:
+  light_grey_7035: {ral: RAL 7035, name: Light grey, srgb_hex: "#CBD0CC"}
+  graphite_7016: {ral: RAL 7016, name: Anthracite grey, srgb_hex: "#383E42"}
+  black_9005: {ral: RAL 9005, name: Jet black, srgb_hex: "#0A0A0A"}
+  orange_2004: {ral: RAL 2004, name: Pure orange, srgb_hex: "#F44611"}
+  cyan_5018: {ral: RAL 5018, name: Turquoise blue (cyan reference; verify against a physical sample), srgb_hex: "#3F888F"}
+  white_9016: {ral: RAL 9016, name: Traffic white (finish on the current MMP drawings), srgb_hex: "#F6F6F6"}
+
+entries:
+  # ---------------------------------------------------------------- lift
+  - id: upper.lift_base_plate
+    node_id: lift_base_plate
+    node_id_status: proposed
+    model_link: lift_column_base_link
+    part: lift base plate (option B; drawing pending)
+    name: Lift base plate
+    location: on the steel deck (upper cover), top face 304 mm above the floor; bp000 or bp050
+    material: aluminium 6082-T6, 10 mm (option B page; BOM Issue 7.13 draft overview)
+    current_finish: verify (drawing pending)
+    colour: black_9005
+    ral: RAL 9005 (appearance reference; anodise colour is not RAL controlled)
+    srgb_hex: "#0A0A0A"
+    finish: anodised
+    process: black anodise after machining, before any insert or fastener is fitted
+    masking: bonding point (spot facing to bare metal, or masked before anodising); keep the four M8 holes and the countersinks for the DIN 7500 screws free of sealant or paint
+    notes: the plate is not tapped (option B page); no change to thickness or holes
+    status: verify
+    verify: lift base plate drawing (outline, hole positions, bonding point); confirm anodising is acceptable on the clamped faces with the joint owner
+  - id: upper.lift_column
+    node_id: lift_column
+    node_id_status: proposed
+    model_link: lift_carriage_link
+    part: DOLD Hexalift V4 350 mm, BS-HM240G350530-MFF24 (BOM row MEC-018)
+    name: Lift column
+    location: on the lift base plate, column axis x +0.060 m (bp000) from base_link, 240 mm side fore-aft
+    material: purchased
+    current_finish: as delivered
+    colour: null
+    ral: null
+    srgb_hex: null
+    finish: as_delivered
+    process: none; no paint, film, insert, strip or label added
+    masking: telescoping sections and seals never touched; protect them with a loose clean sleeve during assembly work above; manufacturer labels stay readable
+    notes: the model has no column geometry yet; the preview renders show a translucent placeholder
+    status: decided
+    verify: null
+
+  # ---------------------------------------------------------------- arm profile and its plates
+  - id: upper.adapter_plate
+    node_id: adapter_plate
+    node_id_status: proposed
+    model_link: lift_carriage_link
+    part: lift adapter plate (BOM row MEC-004; drawing pending)
+    name: Adapter plate
+    location: on the column top, 10 mm, under the arm profile
+    material: aluminium 6082-T6, 10 mm, 360 x 100 mm (BOM row MEC-003 description)
+    current_finish: verify (drawing pending)
+    colour: black_9005
+    ral: RAL 9005 (appearance reference; anodise colour is not RAL controlled)
+    srgb_hex: "#0A0A0A"
+    finish: anodised
+    process: black anodise after machining
+    masking: bonding point; the column top interface and the profile end seat stay flat (anodise only, no paint)
+    notes: no change to the plate; the profile is bolted from below into its end-tapped core holes
+    status: verify
+    verify: MEC-004 drawing (outline, holes, bonding point)
+  - id: upper.rear_upright
+    node_id: rear_upright
+    node_id_status: proposed
+    model_link: lift_carriage_link
+    part: rear upright with stiffener (BOM row MEC-004; drawing pending)
+    name: Rear upright
+    location: behind the arm profile, T-nuts in the two rear slots
+    material: 10 mm plate (BOM row MEC-003 description); alloy not stated
+    current_finish: verify (drawing pending)
+    colour: black_9005
+    ral: RAL 9005 (appearance reference)
+    srgb_hex: "#0A0A0A"
+    finish: anodised
+    process: black anodise if aluminium; powder coat RAL 9005 matte if steel
+    masking: faces clamped by the T-nuts against the profile; bonding point
+    notes: no geometry in the model yet; not shown in the preview renders
+    status: verify
+    verify: MEC-004 drawing (material, outline, height on the profile)
+  - id: upper.arm_profile
+    node_id: arm_profile
+    node_id_status: proposed
+    model_link: arm_profile_link
+    part: MISUMI HFS6-60120, 340 mm, end-tapped both ends (BOM row MEC-003)
+    name: Arm profile
+    location: on the adapter plate, centre 180 mm ahead of the column axis; 60 mm lateral, 120 mm fore-aft; 844 to 1184 mm above the floor at lift 0
+    material: aluminium extrusion, purchased
+    current_finish: as delivered (manufacturer finish; verify)
+    colour: graphite_7016
+    ral: RAL 7016 (target appearance)
+    srgb_hex: "#383E42"
+    finish: anodised
+    process: order with a dark (black or graphite) anodised finish if the manufacturer offers it for this section and length; otherwise keep it as delivered. Never paint or wrap the profile
+    masking: none (factory finish); T-slots and end-tapped core holes are never coated
+    notes: if only the as-delivered finish exists, the model shows it as delivered and this entry changes to colour null
+    status: verify
+    verify: manufacturer confirmation that a dark anodised HFS6-60120 is available; the MISUMI drawing for slot count and positions
+  - id: upper.slot_cover_left
+    node_id: slot_cover_left
+    node_id_status: proposed
+    model_link: arm_profile_link
+    part: slot cover strip for a 6 series 8 mm slot (catalogue part to be selected)
+    name: Slot cover strip, left face (insert I1)
+    location: left (+y) face of the arm profile, front-most slot, lower segment from the adapter plate up to the lower edge of the left J1_A plate
+    material: extruded PVC or PP slot cover, or printed TPU strip if the colour is not offered
+    current_finish: not fitted
+    colour: cyan_5018
+    ral: RAL 5018 (verify against a physical sample)
+    srgb_hex: "#3F888F"
+    finish: matte
+    process: coloured in the material; push-in, no adhesive
+    masking: not applicable
+    notes: removable by hand or with a plastic lever; leaves three slots on this face free
+    status: verify
+    verify: CAD of the J1_A plate outline and its slot use (OpenArm CAD pending), mast cable route, slot positions on the MISUMI drawing; strip length from the CAD; fit check of the strip in the slot
+  - id: upper.slot_cover_right
+    node_id: slot_cover_right
+    node_id_status: proposed
+    model_link: arm_profile_link
+    part: slot cover strip for a 6 series 8 mm slot (catalogue part to be selected)
+    name: Slot cover strip, right face (insert I2)
+    location: right (-y) face of the arm profile, front-most slot, lower segment from the adapter plate up to the lower edge of the right J1_A plate
+    material: extruded PVC or PP slot cover, or printed TPU strip if the colour is not offered
+    current_finish: not fitted
+    colour: cyan_5018
+    ral: RAL 5018 (verify against a physical sample)
+    srgb_hex: "#3F888F"
+    finish: matte
+    process: coloured in the material; push-in, no adhesive
+    masking: not applicable
+    notes: mirror of upper.slot_cover_left; leaves three slots on this face free
+    status: verify
+    verify: as upper.slot_cover_left
+
+  # ---------------------------------------------------------------- OpenArm 2.0
+  - id: upper.openarm_left
+    node_id: null
+    model_links: [openarm_left_base_link, openarm_left_link1, openarm_left_link2, openarm_left_link3, openarm_left_link4, openarm_left_link5, openarm_left_link6, openarm_left_ee_base_link, openarm_left_ee_link1, openarm_left_ee_link2]
+    part: OpenArm 2.0 left arm and compact gripper (BOM rows ARM-001, ARM-005)
+    name: OpenArm 2.0 left arm, metal parts and actuators
+    location: J1_A plate on the left profile face, y +0.031 m
+    material: purchased kit; machined and sheet metal parts (Enactic BOM for 1.0 lists Al6061 and SUS304; 2.0 materials verify)
+    current_finish: as delivered
+    colour: null
+    ral: null
+    srgb_hex: null
+    finish: as_delivered
+    process: none
+    masking: not applicable; joints, cables, labels and the in-hand camera window are never covered
+    notes: the model keeps the materials embedded in the openarm_description meshes
+    status: decided
+    verify: null
+  - id: upper.openarm_right
+    node_id: null
+    model_links: [openarm_right_base_link, openarm_right_link1, openarm_right_link2, openarm_right_link3, openarm_right_link4, openarm_right_link5, openarm_right_link6, openarm_right_ee_base_link, openarm_right_ee_link1, openarm_right_ee_link2]
+    part: OpenArm 2.0 right arm and compact gripper (BOM rows ARM-001, ARM-005)
+    name: OpenArm 2.0 right arm, metal parts and actuators
+    location: J1_A plate on the right profile face, y -0.031 m
+    material: purchased kit; machined and sheet metal parts (Enactic BOM for 1.0 lists Al6061 and SUS304; 2.0 materials verify)
+    current_finish: as delivered
+    colour: null
+    ral: null
+    srgb_hex: null
+    finish: as_delivered
+    process: none
+    masking: not applicable
+    notes: the model keeps the materials embedded in the openarm_description meshes
+    status: decided
+    verify: null
+  - id: upper.openarm_printed_inserts
+    node_id: null
+    model_links: []
+    part: OpenArm 2.0 printed parts (to be identified from the Enactic 2.0 BOM or CAD)
+    name: OpenArm printed inserts (insert I4)
+    location: verify; only parts that the Enactic 2.0 BOM lists as printed, cosmetic and non-structural
+    material: verify (the public 2.0 documentation does not list printed parts; the 1.0 leader end effector is printed in PLA)
+    current_finish: as delivered
+    colour: orange_2004
+    ral: RAL 2004
+    srgb_hex: "#F44611"
+    finish: printed
+    process: reprint the identified part from the published file in orange filament of the same material, same print settings; keep the delivered part as the spare
+    masking: not applicable
+    notes: one accent colour only; no orange part within the keep-out of the chest E-stop (rule K1). Licence of the Enactic hardware files is CERN-OHL-S-2.0; keep its notices with any reprint file
+    status: verify
+    verify: Enactic 2.0 BOM or CAD (v2 Google Drive folder named in enactic/openarm_hardware README) to list printed parts, material and whether they are structural; chest E-stop position for the keep-out
+
+  # ---------------------------------------------------------------- head camera
+  - id: upper.head_camera_bracket
+    node_id: head_camera_bracket
+    node_id_status: proposed
+    model_link: head_camera_mount_link
+    part: head-camera pitch bracket on the profile top (BOM row ARM-011; design pending)
+    name: Head camera pitch bracket
+    location: profile top; pivots on the lens line; hp15 to hp35
+    material: verify (not defined; supplied mount checked first, own bracket only if needed)
+    current_finish: not made
+    colour: black_9005
+    ral: RAL 9005
+    srgb_hex: "#0A0A0A"
+    finish: matte
+    process: black filament if printed; powder coat RAL 9005 matte if sheet steel; black anodise if aluminium
+    masking: pivot bore and the pitch index holes stay uncoated (pitch repeatability)
+    notes: not an accent part
+    status: verify
+    verify: bracket design and material (ARM-011 fit check of the supplied mount first)
+  - id: upper.head_camera_supplied_mount
+    node_id: null
+    part: OpenArm 2.0 supplied camera mount (BOM row ARM-011)
+    name: Supplied ZED Mini mount
+    location: on the pitch bracket, holds the ZED Mini at its ends
+    material: purchased
+    current_finish: as delivered
+    colour: null
+    ral: null
+    srgb_hex: null
+    finish: as_delivered
+    process: none
+    masking: not applicable
+    notes: null
+    status: decided
+    verify: null
+  - id: upper.head_camera
+    node_id: head_camera
+    node_id_status: proposed
+    model_link: head_camera_link
+    part: Stereolabs ZED Mini, ZED-121210 (BOM row ARM-003)
+    name: Head camera
+    location: lens 22 mm ahead of and 223 mm above the arm mount point
+    material: purchased
+    current_finish: as delivered
+    colour: null
+    ral: null
+    srgb_hex: null
+    finish: as_delivered
+    process: none
+    masking: both lenses never covered, filmed or taped
+    notes: null
+    status: decided
+    verify: null
+
+  # ---------------------------------------------------------------- safety and small parts
+  - id: upper.chest_estop
+    node_id: null
+    part: OpenArm kit E-stop button (S2 chest; two NC contacts)
+    name: Chest E-stop
+    location: verify (mast; carries arms, head camera, chest E-stop and cable routing)
+    material: purchased
+    current_finish: as delivered, red on yellow
+    colour: null
+    ral: null
+    srgb_hex: null
+    finish: as_delivered
+    process: none
+    masking: never painted, covered or restyled; no orange or cyan accent within the keep-out (rule K1)
+    notes: if its enclosure is not red on yellow as delivered, raise it with the safety owner; this plan does not restyle it
+    status: verify
+    verify: chest E-stop position on the mast (CAD), to apply the keep-out to I1, I2 and I4
+  - id: upper.cable_guards
+    node_id: null
+    part: cable guards and clamps (BOM row MEC-013)
+    name: Mast cable guards and clamps
+    location: mast cable route (verify)
+    material: COTS or supplier-cut (BOM)
+    current_finish: as delivered
+    colour: black_9005
+    ral: RAL 9005 (select black parts where offered)
+    srgb_hex: "#0A0A0A"
+    finish: as_delivered
+    process: none; choose black catalogue parts
+    masking: not applicable
+    notes: service loops at moving joints stay free; no cover over the telescoping column
+    status: verify
+    verify: mast cable route (CAD) and the MEC-013 part list
+  - id: upper.fasteners
+    node_id: null
+    part: T-nuts, M8 DIN 7500 screws, M8 deck fasteners, J1_A spacers
+    name: Upper-body fasteners
+    location: lift, adapter plate, profile, J1_A plates
+    material: purchased
+    current_finish: as delivered
+    colour: null
+    ral: null
+    srgb_hex: null
+    finish: as_delivered
+    process: none
+    masking: threads never coated
+    notes: not modelled
+    status: decided
+    verify: null
