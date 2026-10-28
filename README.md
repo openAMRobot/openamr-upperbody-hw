@@ -9,7 +9,7 @@ Upper-body hardware for OpenAMRobot 2.0: the lift column on a two-position base 
 - **Base plate:** 10 mm aluminium on the 294 mm chassis deck (top face 304 mm), with two fore-aft column positions, `bp000` (column axis 330 mm behind the chassis front edge, x +0.060) and `bp050` (+50 mm).
 - **Chassis interface:** base plate bolted to the chassis deck, with documented load path, fasteners and tightening torques.
 - **Arm mounting:** a MISUMI HFS6-60120 arm profile, 340 mm long, standing on a 10 mm adapter plate on the column top. The OpenArm 2.0 J1_A plates bolt to its side T-slots, preserving the official arm-mount frames; the arm mount point is 180 mm ahead of the column axis.
-- **Equipment mounting:** head camera (ZED Mini on the lift carriage), chest E-stop and operator equipment brackets, service access and cable strain relief.
+- **Equipment mounting:** head camera (ZED Mini on the lift carriage), chest equipment brackets on the moving part (from the bottom up: Falcon FLDL-i150x15-W head light, a 30 mm gap, Getac ZX80 tablet mounted landscape; positions are placeholders until M-09), the second E-stop bracket on the rear face of the static lift column close to its upper edge, service access and cable strain relief (P-03 rev20.0 item 24, 28 Oct 2026).
 - **Cable routing:** separated power/signal routes, service loops, lift-travel cable management and labelled keyed deck disconnects.
 - **Release package:** CAD, drawings, BOM, assembly instructions, mass/CoG, stiffness and stability evidence, assembled-height and sensor-clearance checks.
 
@@ -18,9 +18,9 @@ The decided values, the height stack, the fastening and the head-camera bracket 
 
 Heights are from the floor (Z = 0). The shoulder, at the OpenArm arm mount point, is 304 + 530 + 166 = **1000 mm** with the lift retracted and 304 + 880 + 166 = **1350 mm** fully extended. The lift height is joint state; `L1000`, `L1175` and `L1350` are calibration stops. **1700 mm is the maximum complete assembled robot height** at full lift extension, including the head camera and all mounted equipment.
 
-Configuration IDs: `column` (`dold_v4_350`, `tl3_400`), `base_plate` (`bp000`, `bp050`), `head_pitch` (`hp15` to `hp35`, baseline `hp25`), `base_tilt` (`bt05`, `bt10`, `bt15`).
+Configuration IDs: `column` (`dold_v4_350`, `tl3_400`), `base_plate` (`bp000`, `bp050`), `head_pitch` (`hp15` to `hp35`, baseline `hp30` since 28 Oct 2026, was `hp25`), `base_tilt` (`bt05`, `bt10`, `bt15`).
 
-Central electronics, controllers, hubs and converters stay inside the mobile platform. The lift carriage carries the arms, head camera and chest E-stop; electronics integral to those devices remain part of the devices.
+Central electronics, controllers, hubs and converters stay inside the mobile platform. The lift carriage carries the arms, head camera, Getac ZX80 tablet and head light. The second E-stop (Schneider XB4BS8445 with ZBE-102, the same as the base button; it replaces the OpenArm kit button) sits on the static lift column and is wired on the static part outside the lift cable chain (P-03 rev20.0 item 24, E-01 rev1.5). Electronics integral to those devices remain part of the devices.
 
 ## Interfaces
 - Chassis structure, protected power branches and deck connectors are coordinated with `openamr-platform-hw`.
