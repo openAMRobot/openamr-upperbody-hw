@@ -5,8 +5,8 @@ Upper-body hardware for OpenAMRobot 2.0: the lift column on a two-position base 
 > **Status:** Design and integration scope. This repository does not yet provide a released upper-body design or fabrication/commissioning evidence.
 
 ## Current deliverables
-- **Lift column:** DOLD Hexalift V4, 350 mm stroke (530 mm retracted, 880 mm extended), mounted with its 240 mm side fore-aft. The OpenArm 2.0 supplier body is not used.
-- **Base plate:** 10 mm aluminium on the 294 mm chassis deck (top face 304 mm), with two fore-aft column positions, `bp000` (column axis 330 mm behind the chassis front edge, x +0.060) and `bp050` (+50 mm).
+- **Lift column:** approved in principle; DOLD Hexalift V4, 350 mm stroke, order code BS-HM240G350530-MFF24 (530 mm retracted, 880 mm extended, 800 N push, 18 mm/s), mounted with its 240 mm side fore-aft; TiMOTION TL3 400 mm fallback. The OpenArm 2.0 supplier body is not used.
+- **Base plate:** 10 mm aluminium on the 294 mm chassis deck (top face 304 mm), with two fore-aft column positions, `bp000` (column axis 330 mm behind the chassis front edge, x +0.060) and `bp050` (+50 mm, x +0.110).
 - **Chassis interface:** base plate bolted to the chassis deck, with documented load path, fasteners and tightening torques.
 - **Arm mounting:** a MISUMI HFS6-60120 arm profile, 340 mm long, standing on a 10 mm adapter plate on the column top. The OpenArm 2.0 J1_A plates bolt to its side T-slots, preserving the official arm-mount frames; the arm mount point is 180 mm ahead of the column axis.
 - **Equipment mounting:** head camera (ZED Mini on the lift carriage), chest equipment brackets on the moving part (from the bottom up: Falcon FLDL-i150x15-W head light, a 30 mm gap, Getac ZX80 tablet on a rotatable mount with two locked positions, landscape by default (234 x 149.8 mm), portrait second (149.8 x 234 mm); positions are placeholders until M-09), the second E-stop bracket on the rear face of the static lift column close to its upper edge, service access and cable strain relief (P-03 rev20.0 item 24, 28 Oct 2026).
@@ -28,7 +28,7 @@ Central electronics, controllers, hubs and converters stay inside the mobile pla
 - Provide mounting transforms, geometry and mass properties to `openamr-upperbody-sw` for the combined model and configuration metadata.
 
 ## This cycle
-Lift-column mounting, base plate, arm profile, brackets and physical integration are current OpenAMRobot 2.0 work. Supplier hole patterns and outlines are pending supplier CAD. Lift holding on E-stop and power loss, the lift driver and interface, and the stability rerun for both base-plate positions are open release gates owned elsewhere. Fabrication and commissioning follow the approved work-package gates; their completion requires evidence and is not implied by this README.
+Lift-column mounting, base plate, arm profile, brackets and physical integration are current OpenAMRobot 2.0 work. Supplier hole patterns and outlines are pending supplier CAD. DOLD confirmed in writing on 14 Oct 2026 that the column holds 800 N with power off; the holding gate closes only when the delivered unit passes the holding test after an E-stop during motion and after power loss. That holding test, the lift driver and interface, and the stability rerun for both base-plate positions are open release gates owned elsewhere. Fabrication and commissioning follow the approved work-package gates; their completion requires evidence and is not implied by this README.
 
 Part of the OpenAMRobot ecosystem: https://github.com/openAMRobot
 

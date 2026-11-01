@@ -10,7 +10,7 @@ All heights are measured from the floor, Z = 0. Axes follow REP 103: x forward, 
 
 | Item | Value |
 |---|---|
-| Lift column | DOLD Hexalift V4, 350 mm stroke |
+| Lift column | DOLD Hexalift V4, 350 mm stroke, order code BS-HM240G350530-MFF24, 800 N push, 18 mm/s; TiMOTION TL3 400 mm fallback |
 | Column length | 530 mm retracted, 880 mm extended |
 | Column orientation | Mounted with its 240 mm side fore-aft |
 | Base plate | 10 mm aluminium on the 294 mm chassis deck; top face 304 mm |
@@ -101,4 +101,4 @@ With the column's 240 mm side fore-aft, the column front face lies 120 mm ahead 
 
 ## Not covered here
 
-Lift holding on E-stop and power loss, the lift driver and its interface, motion interlocks and the stability (F2S) rerun for both base-plate positions are separate release gates owned elsewhere. This page does not implement or validate any of them.
+DOLD confirmed in writing on 14 Oct 2026 that the column holds 800 N with power off. The holding test on the delivered unit after an E-stop during motion and after power loss, the lift driver and its interface, motion interlocks and the stability (F2S) rerun for both base-plate positions are separate release gates owned elsewhere. This page does not implement or validate any of them.
