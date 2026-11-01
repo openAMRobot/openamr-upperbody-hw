@@ -1,6 +1,6 @@
 # Upper-body mounting, option B
 
-> **Status:** Decided design values, not a released design. Decision of record: P-03 revision 19.0 items 16 to 19, 12 October 2026 ("option B"); head camera, chest equipment and second E-stop from P-03 revision 20.0 items 15, 17, 18 and 24 with the 28 October 2026 corrections. Supplier CAD items marked *pending* below are not yet available; nothing in this page is a fabrication release, a stability result or a safety claim.
+> **Status:** Decided design values, not a released design. Decision of record: P-03 revision 19.0 items 16 to 19, 12 October 2026 ("option B"); head camera, chest equipment and second E-stop from P-03 revision 20.0 items 15, 17, 18 and 24 with the 28 October 2026 corrections (head-camera values as recorded in P-03 revision 20.1); tablet mount and the DOLD holding confirmation from P-03 revision 20.2 item 26. Supplier CAD items marked *pending* below are not yet available; nothing in this page is a fabrication release, a stability result or a safety claim.
 
 ## Coordinate convention
 

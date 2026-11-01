@@ -14,7 +14,7 @@ Upper-body hardware for OpenAMRobot 2.0: the lift column on a two-position base 
 - **Release package:** CAD, drawings, BOM, assembly instructions, mass/CoG, stiffness and stability evidence, assembled-height and sensor-clearance checks.
 
 ## Upper-body layout
-The decided values, the height stack, the fastening and the head-camera bracket are recorded in [`docs/mechanical/upper_body_option_B.md`](docs/mechanical/upper_body_option_B.md). Decision of record: P-03 revision 19.0 items 16 to 19, 12 October 2026 (option B).
+The decided values, the height stack, the fastening and the head-camera bracket are recorded in [`docs/mechanical/upper_body_option_B.md`](docs/mechanical/upper_body_option_B.md). Decision of record: P-03 revision 19.0 items 16 to 19, 12 October 2026 (option B); head camera and `hp30` per P-03 revision 20.1 items 15, 17 and 18; equipment, tablet mount and the DOLD holding confirmation per P-03 revision 20.2 items 24 and 26.
 
 Heights are from the floor (Z = 0). The shoulder, at the OpenArm arm mount point, is 304 + 530 + 166 = **1000 mm** with the lift retracted and 304 + 880 + 166 = **1350 mm** fully extended. The lift height is joint state; `L1000`, `L1175` and `L1350` are calibration stops. **1700 mm is the maximum complete assembled robot height** at full lift extension, including the head camera and all mounted equipment.
 
