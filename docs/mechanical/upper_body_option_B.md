@@ -24,7 +24,7 @@ All heights are measured from the floor, Z = 0. Axes follow REP 103: x forward, 
 | Lift calibration stops | `L1000`, `L1175`, `L1350` (calibration IDs, not configuration IDs) |
 | Head camera | Stereolabs ZED Mini on the lift carriage; lens 42 mm ahead of and 223 mm above the arm mount point, centred at y = 0 (moved 20 mm forward on 28 Oct 2026; was 22 mm) |
 | Head-camera pitch | 15 to 35 degrees down in 5 degree steps, IDs `hp15` to `hp35`, baseline `hp30` (30 degrees down since 28 Oct 2026; was `hp25`) |
-| Chest equipment (moving part) | From the bottom up: Falcon FLDL-i150x15-W head light (158 x 17 x 20 mm, 0.32 A at 24 V), a 30 mm gap, Getac ZX80 tablet (8 inch, 234 x 149.8 x 17.6 mm, 590 g, IP67, USB-C PD) mounted landscape; positions are placeholders until M-09 |
+| Chest equipment (moving part) | From the bottom up: Falcon FLDL-i150x15-W head light (158 x 17 x 20 mm, 0.32 A at 24 V), a 30 mm gap, Getac ZX80 tablet (8 inch, 234 x 149.8 x 17.6 mm, 590 g, IP67, USB-C PD) on a rotatable mount, landscape by default, portrait the second locked position (the position is a mount setting, not a configuration ID); positions are placeholders until M-09 |
 | Second E-stop | Schneider XB4BS8445 with ZBE-102 (same as the base button) on the rear face of the static lift column, close to its upper edge; wired on the static part outside the lift cable chain; not on the lift carriage |
 | Maximum assembled height | 1700 mm |
 
