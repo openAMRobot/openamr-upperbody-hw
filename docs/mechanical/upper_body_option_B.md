@@ -22,10 +22,10 @@ All heights are measured from the floor, Z = 0. Axes follow REP 103: x forward, 
 | Shoulder height | 1000 mm at lift 0, 1350 mm at lift 350 mm (at the arm mount point) |
 | Lift joint | Prismatic, 0 to 350 mm; the lift height is joint state |
 | Lift calibration stops | `L1000`, `L1175`, `L1350` (calibration IDs, not configuration IDs) |
-| Head camera | Stereolabs ZED Mini on the lift carriage; lens 42 mm ahead of and 223 mm above the arm mount point, centred at y = 0 (moved 20 mm forward on 28 Oct 2026; was 22 mm) |
+| Head camera | Stereolabs ZED Mini on the lift carriage; lens 60 mm ahead of and 223 mm above the arm mount point, centred at y = 0 (owner decision 8 Nov 2026, register head camera 0.060 m; was 57 mm on 2 Nov and 42 mm on 28 Oct 2026) |
 | Head-camera pitch | 15 to 35 degrees down in 5 degree steps, IDs `hp15` to `hp35`, baseline `hp30` (30 degrees down since 28 Oct 2026; was `hp25`) |
-| Chest equipment (moving part) | From the bottom up: Falcon FLDL-i150x15-W head light (158 x 17 x 20 mm, 0.32 A at 24 V), a 30 mm gap, Getac ZX80 tablet (8 inch, 234 x 149.8 x 17.6 mm, 590 g, IP67, USB-C PD) on a rotatable mount, landscape by default, portrait the second locked position (the position is a mount setting, not a configuration ID); positions are placeholders until M-09 |
-| Second E-stop | Schneider XB4BS8445 with ZBE-102 (same as the base button) on the rear face of the static lift column, close to its upper edge; wired on the static part outside the lift cable chain; not on the lift carriage |
+| Chest equipment (moving part) | From the bottom up: Falcon FLDL-i150x15-W head light (158 x 17 x 20 mm, 0.32 A at 24 V), a 10 mm gap, Getac ZX80 tablet (8 inch, 234 x 149.8 x 17.6 mm, 590 g, IP67, USB-C PD) in portrait only on a fixed portrait mount, 55 mm lower than the P-03 item 26 placeholder; positions are placeholders until M-09 |
+| Second E-stop | Schneider XB4BS8445 with ZBE-102 (same as the base button) on top of the moving adapter plate behind the post, button up; wired through the lift energy chain on continuous-flex cable (register SAFETY-PROCUREMENT; supersedes the static-column position of 28 Oct 2026) |
 | Maximum assembled height | 1700 mm |
 
 The upstream OpenArm body (`openarm_body_link0`) is not used.
@@ -63,7 +63,7 @@ Shoulder height = 304 + 530 + 166 = 1000 mm retracted, and 304 + 880 + 166 = 135
 | Column axis, `bp000` | x +0.060 from `base_link` (330 mm behind the 780 mm chassis front edge; 60 mm ahead of the drive axle) |
 | Column axis, `bp050` | x +0.110 from `base_link` |
 | Arm mount point (J1_A) | x +0.240 at `bp000`, +0.290 at `bp050` from `base_link`; 150 mm behind the chassis front edge at `bp000` |
-| Head-camera lens | x +0.282 at `bp000`, +0.332 at `bp050` from `base_link` (arm mount point + 42 mm) |
+| Head-camera lens | x +0.300 at `bp000`, +0.350 at `bp050` from `base_link` (arm mount point + 60 mm) |
 
 `base_link` is at the drive-axle midpoint, 98.0 mm above the floor (REP 105); front edge at x +0.390.
 
@@ -86,7 +86,7 @@ With the column's 240 mm side fore-aft, the column front face lies 120 mm ahead 
 ## Head-camera bracket
 
 - The supplied OpenArm camera mount holds the ZED Mini at its ends.
-- The pitch bracket pivots on the lens line, so the lens position (42 mm ahead of and 223 mm above the arm mount point) does not change between `hp15` and `hp35`.
+- The pitch bracket pivots on the lens line, so the lens position (60 mm ahead of and 223 mm above the arm mount point) does not change between `hp15` and `hp35`.
 
 ## Pending from supplier CAD
 
